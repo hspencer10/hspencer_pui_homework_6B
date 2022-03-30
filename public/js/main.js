@@ -141,4 +141,9 @@ function removeSection(courseNum) {
     document.getElementById("selection").innerHTML = "Section: ";
     closeModal();
 }
+
+// Loads the current courses for a user
+function loadCurrentCourses(){
+  
+}
   

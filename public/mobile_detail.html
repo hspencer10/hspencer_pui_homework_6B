@@ -6,13 +6,13 @@
     </title>
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="course_detail.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/course_detail.css">
 
     <!-- javascript -->
-    <script defer src="mobile_index.js" type="text/javascript"></script>
-    <script defer src="courses.js" type="text/javascript"></script>
-    <script defer src="main.js" type="text/javascript"></script>
+    <script defer src="js/mobile_index.js" type="text/javascript"></script>
+    <script defer src="js/courses.js" type="text/javascript"></script>
+    <script defer src="js/main.js" type="text/javascript"></script>
 
     <ul class="nav-header">
         <li class="greet"><h1>Welcome, User!</h1></li>
@@ -25,21 +25,21 @@
     </ul>
   </head>
 
-  <body>
+  <body onload="loadCurrentCourses()">
     <div class="course-header">
       <a href="index.html"><img src="images/back_arrow.png" class="account" href="index.html"></a>
-      <h1>67-443 Mobile App Development
-          <span class="reqs-filled" data-hover="Requiremnents fulfilled: BS in Information Systems - Disciplinary Core">
+      <h1 id="class_title">
+          <span class="reqs-filled" data-hover="Requiremnents fulfilled:">
             <img src="images/green_check.png">
           </span>
         </h1>
     </div>
 
     <ul class="course-info">
-      <li class="info"><p>Professor: Prof H</p></li>
-      <li class="info" id="courseSection"><div id="selection">Section: C</div></li>
-      <li class="info"><p>Units: 12</p></li>
-      <li class="info"><p>FCEs: 16</p></li>
+      <li class="info" id="courseProf"><p></p></li>
+      <li class="info" id="courseSection"><div id="selection"></div></li>
+      <li class="info" id="courseUnits"><p></p></li>
+      <li class="info" id="courseFCE"><p></p></li>
     </ul>
 
     <div class="detailed-info">
@@ -84,7 +84,7 @@
       </div>
 
       <div class="desc">
-        <p class="description">Description: </p>
+        <p class="description" id="courseDesc"></p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.398070413414!2d-79.94783464881924!3d40.444325661782955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f2216691d98f%3A0x4bee170862d2ca08!2sHamburg%20Hall!5e0!3m2!1sen!2sus!4v1647809983504!5m2!1sen!2sus" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <div class="actions">
             <button id="modalSwitch"><img src="images/Group 19.png"></button>
@@ -103,16 +103,16 @@
             <span class="close">&times;</span>
           </div>
           <div class="modal-body" id="switch">
-            <input type="radio" id="sectA" name="sections" value="A">
+            <!-- <input type="radio" id="sectA" name="sections" value="A">
             <label for="sectA">A</label><br>
             <input type="radio" id="sectB" name="sections" value="B">
             <label for="sectB">B</label><br>
             <input type="radio" id="sectC" name="sections" value="C">
-            <label for="sectC">C</label>
+            <label for="sectC">C</label> -->
           </div>
           <div class="modal-footer" id="switch">
             <button class="btn" id="cancel" onclick=closeModal()>Cancel</button>
-            <button class="btn" id="switch" onclick="switchSection('two','67-443')">Switch</button>
+            <button class="btn" id="switch" onclick="switchSection()">Switch</button>
           </div>
         </div>
       </div>
@@ -126,11 +126,11 @@
             <span class="close">&times;</span>
           </div>
           <div class="modal-body">
-            <p>Are you sure you want to remove 67-443 Mobile App Development?</p>
+            <p id="removeCourse">Are you sure you want to remove</p>
           </div>
           <div class="modal-footer">
             <button class="btn" id="cancel" onclick="closeModal()">Cancel</button>
-            <button class="btn" id="remove" onclick="removeSection('two')">Remove</button>
+            <button class="btn" id="remove" onclick="removeSection()">Remove</button>
           </div>
         </div>
       </div>
