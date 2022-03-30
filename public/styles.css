@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+}
+
+.nav-header {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(114, 0, 0);
+  }
+  
+.nav-header li {
+    float: right;
+}
+  
+.nav-header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 38px 42px;
+    text-decoration: none;
+  }
+  
+/* Change the link color to #111 (black) on hover */
+.nav-header li a:hover {
+    background-color: rgb(129, 129, 129);
+}
+  
+
+.nav-header .active {
+    background-color: #ffffff;
+    color: black;
+}
+
+.nav-header .greet {
+    float: left;
+    color: white;
+    padding: 7px 30px;
+    vertical-align: middle;
+}
+
+.nav-header .account {
+    padding: 21px 21px;
+}
+
+body {
+    font-family: Verdana;
+}
+  
+.calendar {
+    width: 740px;
+}
+.time-block {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
+.time {
+    /*  background-color: blue;*/
+    /* padding-bottom: 20px; */
+    height: 30px;
+    text-align: right;
+    color: #686868;
+    font-size: 12px;
+}
+
+.calendar-view {
+    width: 88%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 8px;
+    margin-left: 130px;
+    height: 80%;
+    float: left;
+    position: absolute;
+    color: white;
+    background: linear-gradient(
+        to bottom,
+        #f5f5f5,
+        #f8f8f8 95%,
+        #808080
+    );
+    background-size: 100% 60px;
+}
+
+/* Events related */
+.event {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.event-title {
+    font-size: 18px;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.pull-right #course1 {
+    color: black;
+    background-color: pink;
+    border-radius: 25px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pull-right #course2 {
+    color: black;
+    background-color: lightblue;
+    border-radius: 25px;
+    margin-left: 320px;
+    margin-top: 210px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pull-right #course3 {
+    color: black;
+    background-color: lightgreen;
+    border-radius: 25px;
+    margin-left: 670px;
+    margin-top: 340px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.pull-right #course1-1 {
+    color: black;
+    background-color: pink;
+    border-radius: 25px;
+    margin-left: 640px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pull-right #course2-1 {
+    color: black;
+    background-color: lightblue;
+    border-radius: 25px;
+    margin-left: 1000px;
+    margin-top: 310px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pull-right #course3-1 {
+    color: black;
+    background-color: lightgreen;
+    border-radius: 25px;
+    margin-left: 1340px;
+    margin-top: 200px;
+    position: absolute;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.pull-right a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Helper Classes */
+small {
+    font-size: 9px;
+    color: #A7A7A7;
+}
+
+.clear {
+    clear: left;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+
+/* Home page */
+.home-page {
+    padding: 10px 60px;
+    font-weight: 500;
+}
+
+.semester {
+    padding: 10px 60px;
+    font-size: 40px;
+}
+
+#sems {
+    font-size: 40px;
+}
+
+.units {
+    float: right;
+    padding-right: 55px;
+    margin: 10px;
+    font-size: 30px;
+}
+
+.classes {
+    display: block;
+    float: left;
+    overflow: auto;
+    background: white;
+}
+
+.classes-days {
+    width: 100%;
+    padding-bottom: 5px;
+    height: 50px;
+}
+
+.classes-list {
+    background: white;
+    padding-left: 95px;
+}
+
+li.classes p {
+    padding: 0px 120px;
+    font-size: 20px;
+}

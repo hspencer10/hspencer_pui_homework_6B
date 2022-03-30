@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>
+      Course Registration Site
+    </title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="course_detail.css">
+
+    <!-- javascript -->
+    <script defer src="consulting_index.js" type="text/javascript"></script>
+    <script defer src="courses.js" type="text/javascript"></script>
+    <script defer src="main.js" type="text/javascript"></script>
+
+    <ul class="nav-header">
+        <li class="greet"><h1>Welcome, User!</h1></li>
+      
+        <li><img src="images/account_circle.png" class="account"></li>
+        <li><a href="requirements.html">Requirements</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="plan.html">Plan</a></li>
+        <li><a class="active" href="index.html">Home</a></li>
+    </ul>
+  </head>
+
+  <body>
+    <div class="course-header">
+      <a href="index.html"><img src="images/back_arrow.png" class="account" href="index.html"></a>
+      <h1>67-373 IS Consulting
+        <span class="reqs-filled" data-hover="Requiremnents fulfilled: BS in Information Systems - Professional Core">
+          <img src="images/green_check.png">
+        </span>
+      </h1>
+    </div>
+
+    <ul class="course-info">
+      <li class="info"><p>Professor: Prof Mertz</p></li>
+      <li class="info" id="courseSection"><div id="selection">Section: C</div></li>
+      <li class="info"><p>Units: 12</p></li>
+      <li class="info"><p>FCEs: 10</p></li>
+    </ul>
+
+    <div class="detailed-info">
+      <div class="tab">
+        <table class="schedule" id="schedule">
+          <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+          </tr>
+          <tr>
+            <td class="one">57-132</td>
+            <td></td>
+            <td class="one">57-132</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="two">67-443</td>
+            <td></td>
+            <td></td>
+            <td class="three" id="selected">67-373</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="two">67-443</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="three" id="selected">67-373</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="desc">
+        <p class="description">Description: </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.4852121983126!2d-79.94650084881926!3d40.44239656190044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f2210788dbe1%3A0xa75c77611d51a6dc!2sDoherty%20Hall%2C%20Pittsburgh%2C%20PA%2015213!5e0!3m2!1sen!2sus!4v1647809811076!5m2!1sen!2sus" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="actions">
+            <button id="modalSwitch"><img src="images/Group 19.png"></button>
+          <button id="modalBTN"><img src="images/Group 7.png"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Switching sections modal -->
+    <div class="modal" id="myModalSwitch">
+        <!-- content -->
+        <div id="modal-content">
+          <div class="modal-header" id="switch">
+            <div class="modal-title" id="switch">Switch Sections</div>
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body" id="switch">
+            <input type="radio" id="sectA" name="sections" value="A">
+            <label for="sectA">A</label><br>
+            <input type="radio" id="sectB" name="sections" value="B">
+            <label for="sectB">B</label><br>
+            <input type="radio" id="sectC" name="sections" value="C">
+            <label for="sectC">C</label>
+          </div>
+          <div class="modal-footer" id="switch">
+            <button class="btn" id="cancel" onclick=closeModal()>Cancel</button>
+            <button class="btn" id="switch" onclick="switchSection('three','67-373')">Switch</button>
+          </div>
+        </div>
+      </div>
+
+    <!-- Removing course modal -->
+    <div class="modal" id="myModal">
+        <!-- content -->
+        <div id="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">WARNING</div>
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to remove 67-373 IS Consulting?</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn" id="cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn" id="remove" onclick="removeSection('three')">Remove</button>
+          </div>
+        </div>
+      </div>
+
+   
+  </body>
+
+</html>

@@ -1,0 +1,242 @@
+.course-header .reqs-filled {
+    width: 50px;
+    height: 50px;
+    display: inline;
+    float: right;
+    padding-right: 200px;
+    padding-left: 0px;
+    padding-top: 0px;
+    position: relative;
+}
+
+.course-header img {
+    float: left;
+    padding-left: 25px;
+    width: 50px;
+}
+
+ .reqs-filled:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    width: 120%;
+    background-color: rgb(95, 95, 95);
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: opacity 1s ease-in-out;
+
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+ }
+
+.reqs-filled:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+  
+.course-header h1 {
+    position: relative;
+    text-align: center;
+    top: 18px;
+    left: 10px;
+    margin-left: 500px;
+    width: 1000px;
+}
+
+.course-info {
+    background: white;
+    float: left;
+    text-align: center;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.info {
+    display: inline-block;
+    padding: 10px 80px;
+    font-size: 20px;
+}
+
+/* Schedule table */
+div.detailed-info .tab {
+    width: 60%;
+    float: left;
+}
+table.schedule {
+    margin-left: 25px;
+    background: #f8f8f8;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+table.schedule th {
+    height: 70px;
+    text-align: center;
+}
+
+table.schedule td {
+    padding: 50px 10px;
+    height: 40px;
+    text-align: center;
+    font-size: large;
+    width: 175px;
+}
+
+table.schedule td.one {
+    background-color: pink;
+    border-radius: 25px;
+    width: 160px;
+}
+
+table.schedule td#selected {
+    border: 2px solid;
+    border-color: red;
+}
+
+table.schedule td.two {
+    background-color: lightblue;
+    border-radius: 25px;
+    width: 160px;
+}
+
+table.schedule td.three {
+    background-color: lightgreen;
+    border-radius: 25px;
+    width: 160px;
+}
+
+div.detailed-info .desc {
+    width: 40%;
+    float: right;
+}
+
+div.desc p.description {
+    float: left;
+    vertical-align: top;
+    padding-left: 10px;
+    padding-top: 10px;
+    border: 1px solid;
+    border-color:#686868;
+    border-radius: 25px;
+    background-color:#f8f8f8;
+    padding-bottom: 200px;
+    padding-right: 500px;
+}
+
+div.actions img {
+    padding: 20px 40px;
+}
+
+/* Remove Course Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 200ms ease-in-out;
+    border: 1px solid red;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 800px;
+    max-width: 80%;
+}
+
+.modal#myModalSwitch {
+    border: 1px solid rgb(255, 166, 0);
+    top: 35%;
+    left: 75%;
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid red;
+}
+
+.modal-header#switch {
+    border-bottom: 1px solid rgb(255, 166, 0);
+}
+
+.modal-header .modal-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: red;
+    padding-left: 38%;
+}
+
+.modal-header .modal-title#switch {
+    color: rgb(255, 166, 0);
+    padding-left: 30%;
+}
+
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+    padding: 10px 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-body#switch {
+    text-align: left;
+    padding-left: 50px;
+    padding-bottom: 30px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.btn {
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 12px 12px;
+    margin-bottom: 10px;
+}
+
+.btn#remove {
+    float: right;
+    margin-right: 10px;
+    background-color: red;
+    border: 1px solid rgb(214, 4, 4);
+    color: white;
+}
+
+.btn#cancel {
+    float: left;
+    margin-left: 10px;
+    background-color: rgb(255, 217, 0);
+    border: 1px solid rgb(206, 175, 0);
+    color: white;
+}
+
+.btn#switch {
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(90, 224, 0);
+    border: 1px solid rgb(71, 179, 0);
+    color: white;
+}
