@@ -1,7 +1,3 @@
-// Import stylesheets
-// import "./styles.css";
-
-
 // Removing Popup
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -102,6 +98,8 @@ function removeSection(courseNum) {
     closeModal();
 }
 
+//----------------------------------------------------------------------------------------------------
+
 // Loads the current courses for a user
 //Store the courses a student is taking in localStorage
 const class_dict = [];
@@ -125,6 +123,7 @@ function loadCurrentCourses(){
   }
 }
 
+//Renders the event with the appropriate variables
 function renderEvent(evt, eventContainer) {
   const colors = [
     "red",
@@ -152,6 +151,7 @@ function renderEvent(evt, eventContainer) {
 
   link.setAttribute('href', "mobile_detail.html");
   link.setAttribute("class", "event-name");
+  link.setAttribute("onclick", 'courseDetails('+evt.courseNum+')');
   link.appendChild(linkText);
   oneEvent.appendChild(eventStatus);
   oneEvent.appendChild(eventName);
@@ -220,4 +220,33 @@ function getRowPosition(starttime) {
   const rowPos = totalMinutes /15 + 1;
 
   return rowPos;
+}
+
+//---------------------------------------------------------------------------------
+
+//Populating the course detail template page with accurate info
+function courseDetails(courseNum){
+  var course = currentCourses.find(e => e.courseNum === courseNum);
+  var head = course.courseNum + " " + course.title;
+  var req = course.fulfilled;
+  var prof = course.professor;
+  var section = course.section;
+  var units = course.units;
+  var fce = course.fce;
+  var desc = course.description;
+  var reqs = document.createElement("span");
+  reqs.setAttribute("class", "reqs-filled");
+  reqs.setAttribute("data-hover", 'Requiremnents fulfilled: '+req+'');
+  var img = document.createElement("img")
+  img.setAttribute("src", "images/green_check.png");
+  reqs.appendChild(img);
+
+  document.getElementById("class_title").innerHTML = head;
+  document.getElementById("class_title").appendChild(reqs);
+  document.getElementById("courseProf").innerHTML = "Prof: " + prof;
+  document.getElementById("courseSection").innerHTML = "Section: " + section;
+  document.getElementById("courseUnits").innerHTML = "Units: " + units;
+  document.getElementById("courseFCE").innerHTML = "FCEs: " + fce;
+  document.getElementById("courseDesc").innerHTML = "Description: " + desc;
+
 }
