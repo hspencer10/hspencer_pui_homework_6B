@@ -1,46 +1,6 @@
-// Calendar functions
-function Event (start, end) {
-    this.start = start;
-    this.end = end;
-    this.width = null;
-    this.height = null;
-}
-  
-var eventList = [
-    {start: 30, end: 150},
-    {start: 540, end: 600},
-    {start: 560, end: 620},
-    {start: 610, end: 670}
-];
-  
-function layOutDay(events) {
-    var calendar = document.getElementById('calendar-view');
-    
-    for(var i = 0; i < events.length; i++) {
-      drawEvent(calendar, events[i].start, events[i].end, 'Sample Item', 'Sample Location');
-    }
-}
-  
-function drawEvent(view, start, end, title, location) {
-    var newEvent = document.createElement('div');
-    newEvent.className = 'event';
-    newEvent.style.top = start + "px";
-    newEvent.style.height = (end - start) + "px";
-    newEvent.style.width = "600px";
-    
-    var eventTitle = document.createElement('div');
-    eventTitle.className = 'event-title';
-    eventTitle.innerHTML = title;
-    
-    var eventLocation = document.createElement('span');
-    eventLocation.className = 'event-location';
-    eventLocation.innerHTML = location;
-    
-    newEvent.appendChild(eventTitle);
-    newEvent.appendChild(eventLocation);
-    
-    view.appendChild(newEvent);
-}
+// Import stylesheets
+// import "./styles.css";
+
 
 // Removing Popup
 // Get the modal
@@ -143,7 +103,121 @@ function removeSection(courseNum) {
 }
 
 // Loads the current courses for a user
+//Store the courses a student is taking in localStorage
+const class_dict = [];
+const storedCourses = JSON.parse(localStorage.getItem('class_list'));
+const class_list = storedCourses ? storedCourses : ['57-132', '67-443', '67-373'];
+
 function loadCurrentCourses(){
-  
+  //Grab the current course numbers enrolled in
+  var courseNums = [];
+  var eventContainer = document.getElementsByClassName("calendar-view")[0];
+  eventContainer.innerHTML = "";
+  for(let i = 0; i < currentCourses.length; i++){
+    courseNums.push(currentCourses[i].courseNum);
+  }
+  console.log(courseNums);
+  localStorage.setItem('class_list', JSON.stringify(courseNums));
+ 
+  //Display the widgets
+  for(let i = 0; i < currentCourses.length; i++){
+    renderEvent(currentCourses[i], eventContainer);
+  }
 }
-  
+
+function renderEvent(evt, eventContainer) {
+  const colors = [
+    "red",
+    "green",
+    "darkgreen",
+    "darkred",
+    "darkblue",
+    "darkcyan",
+    "maroon",
+    "midnightblue",
+    "teal",
+    "darkslategray",
+    "mediumblue"
+  ];
+  //Creates the element
+  var oneEvent = document.createElement("div");
+  var link = document.createElement("a");
+  var linkText = document.createTextNode("Details");
+  var eventStatus = document.createElement("div");
+  var eventName = document.createElement("div");
+  var eventTitle = document.createElement("div");
+  const color = Math.floor(Math.random() * colors.length);
+  eventName.innerHTML = `${evt.courseNum}`;
+  eventTitle.innerHTML = `${evt.title}`;
+
+  link.setAttribute('href', "mobile_detail.html");
+  link.setAttribute("class", "event-name");
+  link.appendChild(linkText);
+  oneEvent.appendChild(eventStatus);
+  oneEvent.appendChild(eventName);
+  oneEvent.appendChild(eventTitle);
+  oneEvent.appendChild(link);
+  eventName.setAttribute("class", "event-name");
+  eventTitle.setAttribute("class", "event-name");
+  eventStatus.setAttribute("class", "event-status");
+  oneEvent.setAttribute("class", "slot");
+
+  /**
+   * if two events have same start time
+   */
+  oneEvent.style.background = colors[color];
+  oneEvent.style.width = evt.width + "%";
+  oneEvent.style.left = evt.left + "%";
+  oneEvent.style.zIndex = evt.zindex;
+  oneEvent.style.height = getHeight(evt.startTime, evt.endTime) + "px";
+  // 100 / ((8-colPos))
+  oneEvent.style.gridColumnStart = getColumnPosition(evt.dayOfWeek);
+  oneEvent.style.gridRowStart = getRowPosition(evt.startTime);
+
+  // add to event container
+  eventContainer.appendChild(oneEvent);
+}
+
+//Helper functions to help determine grid column/row
+function getHeight(starttime, endtime) {
+  const starthour = starttime.split(":")[0];
+  const startmin = starttime.split(":")[1];
+  const endhour = endtime.split(":")[0];
+  const endmin = endtime.split(":")[1];
+
+  var datestart = new Date();
+  var dateend = new Date();
+  datestart.setHours(parseInt(starthour));
+  datestart.setMinutes(parseInt(startmin));
+
+  dateend.setHours(parseInt(endhour));
+  dateend.setMinutes(parseInt(endmin));
+
+  var duration = Math.abs(datestart.valueOf() - dateend.valueOf()) / 1000;
+  return duration / 60;
+}
+
+function getColumnPosition(weekday) {
+  if(weekday == 'Monday'){
+    return 1;
+  } else if(weekday =='Tuesday'){
+    return 2;
+  } else if(weekday =='Wednesday'){
+    return 3;
+  } else if(weekday =='Thursday'){
+    return 4;
+  } else {
+    return 5;
+  }
+}
+
+function getRowPosition(starttime) {
+  console.log(starttime);
+  const h = +starttime.split(":")[0];
+  const m = +starttime.split(":")[1];
+  console.log(h, m);
+  const totalMinutes = Math.abs(8 - h) * 60 + m;
+  const rowPos = totalMinutes /15 + 1;
+
+  return rowPos;
+}

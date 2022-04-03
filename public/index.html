@@ -23,7 +23,7 @@
     </ul>
   </head>
 
-  <body>
+  <body onload="loadCurrentCourses()">
     <form action="/action_page.php" class="semester">
       <label for="sems">Schedule for:</label>
       <select name="sems" id="sems">
@@ -36,62 +36,55 @@
       <p class="units">Total Units: 54</p>
     </form>
 
-    <div class="classes-days">
-      <ul class="classes-list">
-        <li class="classes"><p>Monday</p></li>
-        <li class="classes"><p>Tuesday</p></li>
-        <li class="classes"><p>Wednesday</p></li>
-        <li class="classes"><p>Thursday</p></li>
-        <li class="classes"><p>Friday</p></li>
-      </ul>
-     </div>
-
-
     <div class="calendar">
+      <div class="header">
+        <ul class="weekdays">
+          <li>Monday</li>
+          <li>Tuesday</li>
+          <li>Wednesday</li>
+          <li>Thursday</li>
+          <li>Friday</li>
+        </ul>
+      </div>
+
       <div class="time-block">
-        <div class="time">8:00 <small>AM</small></div>
-        <div class="time"><small>8:30</small></div>
-        <div class="time">9:00 <small>AM</small></div>
-        <div class="time"><small>9:30</small></div>
-        <div class="time">10:00 <small>AM</small></div>
-        <div class="time"><small>10:30</small></div>
-        <div class="time">11:00 <small>AM</small></div>
-        <div class="time"><small>11:30</small></div>
-        <div class="time">12:00 <small>PM</small></div>
-        <div class="time"><small>12:30</small></div>
-        <div class="time">1:00 <small>PM</small></div>
-        <div class="time"><small>1:30</small></div>
-        <div class="time">2:00 <small>PM</small></div>
-        <div class="time"><small>2:30</small></div>
-        <div class="time">3:00 <small>PM</small></div>
-        <div class="time"><small>3:30</small></div>
-        <div class="time">4:00 <small>PM</small></div>
-        <div class="time"><small>4:30</small></div>
-        <div class="time">5:00 <small>PM</small></div>
-        <div class="time"><small>5:30</small></div>
-        <div class="time">6:00 <small>PM</small></div>
-        <div class="time"><small>6:30</small></div>
-        <div class="time">7:00 <small>PM</small></div>
-        <div class="time"><small>7:30</small></div>
-        <div class="time">8:00 <small>PM</small></div>
-        <div class="time"><small>8:30</small></div>
-        <div class="time">9:00 <small>PM</small></div>
+        <ul class="times">
+          <li>8:00 <small>AM</small></li>
+          <li><small>8:30</small></li>
+          <li>9:00 <small>AM</small></li>
+          <li><small>9:30</small></li>
+          <li>10:00 <small>AM</small></li>
+          <li><small>10:30</small></li>
+          <li>11:00 <small>AM</small></li>
+          <li><small>11:30</small></li>
+          <li>12:00 <small>PM</small></li>
+          <li><small>12:30</small></li>
+          <li>1:00 <small>PM</small></li>
+          <li><small>1:30</small></li>
+          <li>2:00 <small>PM</small></li>
+          <li><small>2:30</small></li>
+          <li>3:00 <small>PM</small></li>
+          <li><small>3:30</small></li>
+          <li>4:00 <small>PM</small></li>
+          <li><small>4:30</small></li>
+          <li>5:00 <small>PM</small></li>
+          <li><small>5:30</small></li>
+          <li>6:00 <small>PM</small></li>
+          <li><small>6:30</small></li>
+          <li>7:00 <small>PM</small></li>
+          <li><small>7:30</small></li>
+          <li>8:00 <small>PM</small></li>
+          <li><small>8:30</small></li>
+          <li>9:00 <small>PM</small></li>
+        </ul>
       </div>
 
       <div id="calendar-view" class="calendar-view">
-          <div class="event">
-            <div class="pull-left border-blue"></div>
-            <div class="pull-right">
-              <div class="event-title" id="course1"><a href="programming_detail.html">57-132 </br> Computer Programming</a></div>
-              <div class="event-title" id="course2"><a href="mobile_detail.html">67-443 </br> Mobile App Development</a></div>
-              <div class="event-title" id="course1-1"><a href="programming_detail.html">57-132 </br> Computer Programming</a></div>
-              <div class="event-title" id="course3"><a href="consulting_detail.html">67-373 </br> IS Consulting</a></div>
-              <div class="event-title" id="course2-1"><a href="mobile_detail.html">67-443 </br> Mobile App Development</a></div>
-              <div class="event-title" id="course3-1"><a href="consulting_detail.html">67-373 </br> IS Consulting</a></div>
-            </div>
-          </div>
+        <div class="slot slot-1">
+          <div class="event-status"></div>
+          <span>Event A</span>
+        </div>
       </div>
-
     </div>
    
   </body>
