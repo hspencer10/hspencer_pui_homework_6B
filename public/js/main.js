@@ -151,7 +151,7 @@ function renderEvent(evt, eventContainer) {
 
   link.setAttribute('href', "mobile_detail.html");
   link.setAttribute("class", "event-name");
-  link.setAttribute("onclick", 'passCourseNum('+evt.courseNum+')');
+  link.setAttribute("onclick", 'storeCourse("'+evt.courseNum+'")');
   link.appendChild(linkText);
   oneEvent.appendChild(eventStatus);
   oneEvent.appendChild(eventName);
@@ -224,10 +224,16 @@ function getRowPosition(starttime) {
 
 //---------------------------------------------------------------------------------
 
-//Populating the course detail template page with accurate info
-function passCourseNum(num){
-  console.log(num);
-  window.addEventListener('load', courseDetails(num));
+//Storing the course num of the widget clicked on to later find in the detail page
+function storeCourse(num){
+  localStorage.setItem('course', JSON.stringify(num));
+}
+
+//Parse localStorage for the previously saved course to populate detail page
+function loadCourse(){
+  var course = JSON.parse(localStorage.getItem('course'));
+  courseDetails(course);
+  populateCalendarView(course);
 }
 
 function courseDetails(courseNum){
@@ -257,7 +263,7 @@ function courseDetails(courseNum){
 }
 
 //Function for grabbing the indices of the mini-calendar
-function populateCalendarView(){
+function populateCalendarView(numSelected){
   var classInfo = [];
   var table = document.querySelector('#schedule');
   var courseNums = JSON.parse(localStorage.getItem("class_list"));
@@ -278,10 +284,16 @@ function populateCalendarView(){
     table.rows[r2].cells[c2].classList.add(num);
     table.rows[r1].cells[c1].setAttribute('class', ''+className+'');
     table.rows[r2].cells[c2].setAttribute('class', ''+className+'');
+    if(num === numSelected){
+      table.rows[r1].cells[c1].setAttribute('id', 'selected');
+      table.rows[r2].cells[c2].setAttribute('id', 'selected');
+    }
     table.rows[r1].cells[c1].textContent = num;
     table.rows[r2].cells[c2].textContent = num;
   }
+}
 
-  console.log(classInfo);
-
+//populates the section choices for a course on the detail page
+function fillSections(){
+  
 }
