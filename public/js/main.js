@@ -151,7 +151,7 @@ function renderEvent(evt, eventContainer) {
 
   link.setAttribute('href', "mobile_detail.html");
   link.setAttribute("class", "event-name");
-  link.setAttribute("onclick", 'courseDetails('+evt.courseNum+')');
+  link.setAttribute("onclick", 'passCourseNum('+evt.courseNum+')');
   link.appendChild(linkText);
   oneEvent.appendChild(eventStatus);
   oneEvent.appendChild(eventName);
@@ -225,6 +225,11 @@ function getRowPosition(starttime) {
 //---------------------------------------------------------------------------------
 
 //Populating the course detail template page with accurate info
+function passCourseNum(num){
+  console.log(num);
+  window.addEventListener('load', courseDetails(num));
+}
+
 function courseDetails(courseNum){
   var course = currentCourses.find(e => e.courseNum === courseNum);
   var head = course.courseNum + " " + course.title;
@@ -248,5 +253,35 @@ function courseDetails(courseNum){
   document.getElementById("courseUnits").innerHTML = "Units: " + units;
   document.getElementById("courseFCE").innerHTML = "FCEs: " + fce;
   document.getElementById("courseDesc").innerHTML = "Description: " + desc;
+
+}
+
+//Function for grabbing the indices of the mini-calendar
+function populateCalendarView(){
+  var classInfo = [];
+  var table = document.querySelector('#schedule');
+  var courseNums = JSON.parse(localStorage.getItem("class_list"));
+  for(let i = 0; i < courseNums.length; i++){
+    classInfo.push(currentCourses.find(e => e.courseNum === courseNums[i]));
+  }
+
+  //Formatting the data cells to display the courses
+  var elementClassName = ["one", "two", "three"];
+  for(let j = 0; j < classInfo.length; j++){
+    let c1 = classInfo[j].index[0].col;
+    let r1 = classInfo[j].index[0].row;
+    let c2 = classInfo[j].index[1].col;
+    let r2 = classInfo[j].index[1].row;
+    let num = classInfo[j].courseNum;
+    let className = elementClassName[j];
+    table.rows[r1].cells[c1].classList.add(num);
+    table.rows[r2].cells[c2].classList.add(num);
+    table.rows[r1].cells[c1].setAttribute('class', ''+className+'');
+    table.rows[r2].cells[c2].setAttribute('class', ''+className+'');
+    table.rows[r1].cells[c1].textContent = num;
+    table.rows[r2].cells[c2].textContent = num;
+  }
+
+  console.log(classInfo);
 
 }
