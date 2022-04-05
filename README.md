@@ -23,6 +23,10 @@ Some of my technical obstacles stemmed from my conceptual challenges which didn�
 Deploying
 This challenge is very small but there are some functionalities that are not working with my Firebase link. For example, I had made it so that you cannot click on the “Plan”, “Register”, and “Requirements” pages which works when I pull up the file from my locally stored folders but not when I access the application from the hosting URL. I’m not sure how much of a penalty this is but I did try to make it so that the user wouldn’t be able to open these pages since there is no content on them yet.
 
+Scope
+Another challenge I had for this assignment was the size of my scope. I wasn’t able to implement every single piece of feedback that I received but tried to make the widgets on the calendar a little more intuitive to click. Additionally, there were some features that I wanted to get around to but didn’t have time due to the challenges I encountered listed above. Some features that I had to cut out of this scope were building out the Plan page so that the user can see all of the possible courses and add them to their schedule. There were also a few design changes I couldn’t get around to due to time but would help my interface be more appealing to the user such as consistent colors across pages, graying out items not clickable, etc.
+
+
 Programming Concepts
 
 One concept I became very familiar with that I hadn’t been before was the concept of using classes versus ID’s when referencing different elements. For instance I learned that classes return nodes when using .getElementByClass and that using an ID returns just a singular object. This makes it way easier to call elements rather than having to parse through all the nodes returned by classes.
