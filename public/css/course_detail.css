@@ -217,7 +217,7 @@ button {
     margin-bottom: 10px;
 }
 
-.btn#remove {
+.btn#removeBTN {
     float: right;
     margin-right: 10px;
     background-color: red;
@@ -233,7 +233,7 @@ button {
     color: white;
 }
 
-.btn#switch {
+.btn#switchBTN {
     float: right;
     margin-right: 10px;
     background-color: rgb(90, 224, 0);

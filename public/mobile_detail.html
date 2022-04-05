@@ -102,17 +102,11 @@
             <div class="modal-title" id="switch">Switch Sections</div>
             <span class="close">&times;</span>
           </div>
-          <div class="modal-body" id="switch">
-            <!-- <input type="radio" id="sectA" name="sections" value="A">
-            <label for="sectA">A</label><br>
-            <input type="radio" id="sectB" name="sections" value="B">
-            <label for="sectB">B</label><br>
-            <input type="radio" id="sectC" name="sections" value="C">
-            <label for="sectC">C</label> -->
+          <div class="modal-body" id="modalBodySwitch">
           </div>
           <div class="modal-footer" id="switch">
-            <button class="btn" id="cancel" onclick=closeModal()>Cancel</button>
-            <button class="btn" id="switch" onclick="switchSection()">Switch</button>
+            <button class="btn" id="cancel" onclick="closeModal()">Cancel</button>
+            <button class="btn" id="switchBTN">Switch</button>
           </div>
         </div>
       </div>
@@ -126,11 +120,11 @@
             <span class="close">&times;</span>
           </div>
           <div class="modal-body">
-            <p id="removeCourse">Are you sure you want to remove</p>
+            <p id="removeCourse"></p>
           </div>
           <div class="modal-footer">
             <button class="btn" id="cancel" onclick="closeModal()">Cancel</button>
-            <button class="btn" id="remove" onclick="removeSection()">Remove</button>
+            <button class="btn" id="removeBTN">Remove</button>
           </div>
         </div>
       </div>
