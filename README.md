@@ -26,7 +26,11 @@ This challenge is very small but there are some functionalities that are not wor
 Programming Concepts
 
 One concept I became very familiar with that I hadn’t been before was the concept of using classes versus ID’s when referencing different elements. For instance I learned that classes return nodes when using .getElementByClass and that using an ID returns just a singular object. This makes it way easier to call elements rather than having to parse through all the nodes returned by classes.
+
 Another concept I learned very in depthly about is localStorage. I had never heard of this type of storage before and the fact that you can delete storage if it becomes messed up and restart is something that I found very useful. Although it does suck that everything has to be stored as a string, using the JSON.stringify really makes the process go a lot smoother.
+
 One concept that I also found myself using way more than I had originally thought was div tags. I knew that they were useful for referencing a large group of items before but once I found out that it actually can be used for layout techniques and helping stack different elements ontop of eachother, it made the code more understandable and easier to determine how to accomplish the designs I was going for.
+
 My fourth concept that I learned was modals as a whole. I knew that alert boxes existed but for some of my functionalities that I wanted to implement, I knew that simple alert boxes weren’t going to cut it. This is when I found modals and figured out how to show/hide them depending on the state of the system. I found these excellent ways to communicate feedback to the user.
+
 The last concept I learned was learning how to manipulate tables and grids. I used both of these concepts for displaying my different calendar views, both on the main page and the course details page. Once I was able to do some research on the functionalities of the two and the types of flexibilities they each provide, I found these elements to be way more useful than just using regular div-containers. The fact that you can use a grid system and specify exactly how many rows/columns you need and can assign an element to an exact cell, blew my mind.
